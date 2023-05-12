@@ -1,7 +1,14 @@
 from collections import deque
 
 
-def sum_tree(root):
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+def sum_tree(root: Node) -> int:
     if root is None:
         return 0
     
@@ -10,7 +17,7 @@ def sum_tree(root):
 
     return root.val + left_sum + right_sum
 
-def sum_tree_dfs(root):
+def sum_tree_dfs(root: Node) -> int:
     if root is None:
         return 0
     
@@ -26,7 +33,7 @@ def sum_tree_dfs(root):
                 stack.append(child)    
     return total_sum
 
-def sum_tree_bfs(root):
+def sum_tree_bfs(root: Node) -> int:
     if root is None:
         return 0
     
@@ -42,11 +49,6 @@ def sum_tree_bfs(root):
                 queue.append(child)
     return total_sum
 
-class Node:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 bin_tree = Node(2, Node(5, Node(100), Node(200)), Node(10, right=Node(1000)))
 
