@@ -1,3 +1,23 @@
+from collections import deque
+
+def tree_value_count_bfs(root, target):
+    if root is None:
+        return 0
+    
+    counter = 0
+    queue = deque( [ root ] )
+    while queue:
+        curr = queue.popleft()
+        if curr.val == target:
+            counter += 1
+        
+        for child in (curr.left, curr.right):
+            if child is not None:
+                queue.append(child)
+
+    return counter
+
+
 def tree_value_count_iterative(root, target):
     if root is None:
         return 0
@@ -36,3 +56,4 @@ binary_tree = Node(2, Node(5, Node(4), Node(5)), Node(6, right=Node(5)))
 
 print(f"{tree_value_count(root=binary_tree, target=5) = }")
 print(f"{tree_value_count_iterative(root=binary_tree, target=5) = }")
+print(f"{tree_value_count_bfs(root=binary_tree, target=5) = }")
