@@ -29,3 +29,10 @@ tree_lst = [
     bin_tree,
     bin_tree_2,
 ]
+
+bin_tree_numbers = Node(2, Node(3, Node(6), Node(8)), Node(5, right=Node(16)))
+#             2
+#           /  \ 
+#          3    5
+#         / \    \
+#        6   8    f
