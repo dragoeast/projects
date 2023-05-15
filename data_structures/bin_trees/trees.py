@@ -12,8 +12,6 @@ bin_tree = Node('a', Node('b', Node('d'), Node('e')), Node('c', right=Node('f'))
 #          b    c
 #         / \    \
 #        d   e    f
-#           /
-#          g
 
 
 bin_tree_2 = Node('a', Node('b', Node('d'), Node('e', Node('g'))), Node('c', right=Node('f')))
@@ -24,3 +22,10 @@ bin_tree_2 = Node('a', Node('b', Node('d'), Node('e', Node('g'))), Node('c', rig
 #        d   e    f
 #           /
 #          g
+
+tree_lst = [
+    empty_tree,
+    single_tree,
+    bin_tree,
+    bin_tree_2,
+]
