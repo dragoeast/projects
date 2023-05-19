@@ -1,17 +1,22 @@
 def positioning_plants(costs):
-    return _positioning_plants(costs, pos=0, last_plant=None)
+    return _positioning_plants(costs, pos=0, last_plant=None, memo={})
 
-def _positioning_plants(costs, pos, last_plant):
+def _positioning_plants(costs, pos, last_plant, memo):
+    key = ( pos, last_plant )
+    if key in memo:
+        return memo[key]
+    
     if pos >= len(costs):
         return 0
     
     min_cost = float('inf')
     for plant, cost in enumerate(costs[pos]):
         if last_plant != plant:
-            curr_cost = cost + _positioning_plants(costs, pos+1, last_plant=plant)
+            curr_cost = cost + _positioning_plants(costs, pos+1, last_plant=plant, memo=memo)
             if curr_cost < min_cost:
                 min_cost = curr_cost
-    return min_cost
+    memo[key] = min_cost
+    return memo[key]
 
 costs = [
   [4, 3, 7],
