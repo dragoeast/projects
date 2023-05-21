@@ -1,3 +1,4 @@
+from collections import deque
 from random import sample
 
 def merge_sort(nums):
@@ -11,16 +12,18 @@ def merge_sort(nums):
     return _merge(left_sorted, right_sorted)
 
 def _merge(left_sorted, right_sorted):
+    left_sorted_queue = deque(left_sorted)
+    right_sorted_queue = deque(right_sorted)
     merged = []
 
-    while left_sorted and right_sorted:
-        if left_sorted[0] < right_sorted[0]:
-            merged.append(left_sorted.pop(0))
+    while left_sorted_queue and right_sorted_queue:
+        if left_sorted_queue[0] < right_sorted_queue[0]:
+            merged.append(left_sorted_queue.popleft())
         else:
-            merged.append(right_sorted.pop(0))
+            merged.append(right_sorted_queue.popleft())
 
-    merged += left_sorted
-    merged += right_sorted
+    merged += left_sorted_queue
+    merged += right_sorted_queue
 
     return merged
 
