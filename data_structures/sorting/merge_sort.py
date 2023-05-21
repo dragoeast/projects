@@ -12,18 +12,18 @@ def merge_sort(nums):
     return _merge(left_sorted, right_sorted)
 
 def _merge(left_sorted, right_sorted):
-    left_sorted_queue = deque(left_sorted)
-    right_sorted_queue = deque(right_sorted)
+    queue_1 = deque(left_sorted)
+    queue_2 = deque(right_sorted)
     merged = []
 
-    while left_sorted_queue and right_sorted_queue:
-        if left_sorted_queue[0] < right_sorted_queue[0]:
-            merged.append(left_sorted_queue.popleft())
+    while queue_1 and queue_2:
+        if queue_1[0] < queue_2[0]:
+            merged.append(queue_1.popleft())
         else:
-            merged.append(right_sorted_queue.popleft())
+            merged.append(queue_2.popleft())
 
-    merged += left_sorted_queue
-    merged += right_sorted_queue
+    merged += queue_1
+    merged += queue_2
 
     return merged
 
