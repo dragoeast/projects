@@ -14,7 +14,7 @@ def build_tree_in_pre(in_order, pre_order):
     >>> pre_order = [ letter for letter in "abc" ]
     >>> bin_tree = build_tree_in_pre(in_order, pre_order)
     >>> #         a
-    >>> #       /  \
+    >>> #       /  \\
     >>> #      b    c
     >>> get_in_order(root=bin_tree) == in_order
     True
@@ -24,9 +24,9 @@ def build_tree_in_pre(in_order, pre_order):
     >>> pre_order_2 = [ letter for letter in "abdecf" ]
     >>> bin_tree_2 = build_tree_in_pre(in_order_2, pre_order_2)
     >>> #         a
-    >>> #       /  \
+    >>> #       /  \\
     >>> #      b    c
-    >>> #    /  \     \
+    >>> #    /  \     \\
     >>> #  d     e     f
     >>> get_in_order(root=bin_tree_2) == in_order_2
     True
