@@ -53,3 +53,20 @@ def compare(word_1, word_2, alph_dict):
         return True
     else:
         return False
+
+def testing():
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    assert lexical_order("apple", "dock", alphabet) == True, "should be True"
+    assert lexical_order("apple", "ample", alphabet) == False, "should be False"
+    assert lexical_order("app", "application", alphabet) == True, "should be True"
+    assert lexical_order("backs", "backdoor", alphabet) == False, "should be False"
+
+    alphabet = "ghzstijbacdopnfklmeqrxyuvw"
+    assert lexical_order("zoo", "dinner", alphabet) == True, "should be True"
+    assert lexical_order("leaper", "leap", alphabet) == False, "should be False"
+    assert lexical_order("backs", "backdoor", alphabet) == True, "should be True"
+    assert lexical_order("semper", "semper", alphabet) == True, "should be True"
+
+if __name__ == "__main__":
+    testing()
+    print("Everything passed")
