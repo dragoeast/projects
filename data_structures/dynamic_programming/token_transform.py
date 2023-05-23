@@ -21,6 +21,7 @@ def token_transform(tokens, s):
             key = s[i:j+1]
             value = tokens[key]
             evaluated_value = token_transform(tokens, s=value)
+            tokens[key] = evaluated_value #this will act as a memoization
             result_lst.append(evaluated_value)
             i = j + 1
             j = i + 1
@@ -34,9 +35,17 @@ def testing():
     '$D$': "we have",
     '$C$': "clever",
     }
+    print(f"tokens before the memoization")
+    for token_item in tokens.items():
+        print(token_item)
+
     result = 'What a pretty epicly clever problem we have here!'
     assert token_transform(tokens, s="What a $A$ here!") == result, f"should be '{result}'"
+    print(f"tokens after the memoization")
+    for token_item in tokens.items():
+        print(token_item)
 
 if __name__ == "__main__":
     testing()
+    print("="*20)
     print("Everything passed")
