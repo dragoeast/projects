@@ -67,6 +67,8 @@ def testing():
     assert lexical_order("backs", "backdoor", alphabet) == True, "should be True"
     assert lexical_order("semper", "semper", alphabet) == True, "should be True"
 
+    assert lexical_order("zoo", "tick", alphabet) == True, "should be True"
+
 if __name__ == "__main__":
     testing()
     print("Everything passed")
